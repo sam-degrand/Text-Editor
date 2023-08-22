@@ -29,7 +29,7 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 // TODO: Implement asset caching
 registerRoute(
 // Cache static assets (e.g., CSS, JS, images) using a StaleWhileRevalidate strategy  
-({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+({ request }) => request.destination === 'document',
   new StaleWhileRevalidate({
     cacheName: 'static-assets',
     plugins: [

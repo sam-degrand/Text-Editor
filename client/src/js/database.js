@@ -7,39 +7,46 @@ const initdb = async () =>
         console.log('jate database already exists');
         return;
       }
+      // Creates a new object store for the data and gives it a key name of 'id' which 
+      //     will increment automatically
       db.createObjectStore('jate', { keyPath: 'id', autoIncrement: true });
       console.log('jate database created');
     },
   });
 
-// TODO: Add logic to a method that accepts some content and adds it to the database
-export const putDb = async (content) => {
-  try {
-    console.log('PUT to the database');
-    const contactDb = await initdb();
-    const tx = contactDb.transaction('jate', 'readwrite');
-    const store = tx.objectStore('jate');
-    const request = store.put({ value: content });
-    await request;
-    console.log('data saved to the database');
-  } catch (error) {
-    console.error('Error putting data into the database:', error);
-  }
+// Exports an UPDATE function for the database
+export const putDb = async (content, id) => {
+  console.log('PUT to the database');
+
+  const contactDb = await openDB('jate', 1);
+
+  const tx  = contactDb.transaction('jate', 'readwrite');
+
+  const store = tx.objectStore('jate');
+
+  const request = store.put({ content: content }, id);
+
+  const result = await request;
+  
+  console.log('Data updated in the database', result);
 };
-// TODO: Add logic for a method that gets all the content from the database
+
+// Exports a GET function for the database
 export const getDb = async () => {
-  try {
-    console.log('GET from the database');
-    const contactDb = await initdb();
-    const tx = contactDb.transaction('jate', 'readonly');
-    const store = tx.objectStore('jate');
-    const request = store.getAll();
-    const result = await request;
-    console.log('result', result);
-    return result;
-  } catch (error) {
-    console.error('Error getting data from the database:', error);
-    return [];
-  }
+  console.log('GET from the database');
+
+  const contactDb = await openDB('jate', 1);
+
+  const tx = contactDb.transaction('jate', 'readonly');
+
+  const store = tx.objectStore('jate');
+
+  const request = store.getAll();
+
+  const result = await request;
+  console.log('result.value', result);
+  return result.value;
 };
+
+// Starts the database
 initdb();
