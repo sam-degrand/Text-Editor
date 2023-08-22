@@ -14,8 +14,7 @@ Click the link to view the page: [Text-Editor](https://protected-retreat-57181-7
 - [Installation](#installation)
 - [Usage](#usage)
 - [Built With](#built-with)
-- [Tests](#tests)
-
+- [Questions](#questions)
 
 ## Installation
 
@@ -36,7 +35,7 @@ bash
 
 npm install
 To install this application go to the website and click the install button at the top of the page. 
-[ext-Editor](https://protected-retreat-57181-7b90a6bb829f.herokuapp.com/)
+[text-Editor](https://protected-retreat-57181-7b90a6bb829f.herokuapp.com/)
 
 
 ## Usage
@@ -54,9 +53,6 @@ You can use the application on the website, or download it on the website and us
 * webpack
 * workbox
 
-To see a complete list, look in the package.json files within the project. 
-
-
 ## How to Contribute
 
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
@@ -68,6 +64,7 @@ Contributions are welcome! If you'd like to contribute to this project, please f
     Create a pull request with a detailed description of your changes.
 
 ## Questions
+If you have questions please contact me
 
 Email: degrandchamps@gmail.com
 
