@@ -38,8 +38,8 @@ module.exports = () => {
         description: 'text editor',
         background_color: '#ffffff',
         theme_color: '#000000',
-        start_url: '/',
-        publicPath: '/',
+        start_url: './',
+        publicPath: './',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
